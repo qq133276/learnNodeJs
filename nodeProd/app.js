@@ -42,12 +42,12 @@ const serveHandle = async (req, res) => {
 
     req.body = await getPostData(req)
 
-    const blogData = handleBlogRouter(req, res)
+    const blogData = await handleBlogRouter(req, res)
     if(blogData){
         res.end(JSON.stringify(blogData))
         return
     }
-    const loginData = handleLoginRouter(req, res)
+    const loginData = await handleLoginRouter(req, res)
     if(loginData){
         res.end(JSON.stringify(loginData))
         return
